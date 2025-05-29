@@ -415,6 +415,48 @@ button.next:hover {
   }
 }
 
+/* Modal da imagem */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+}
+
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  color: #f00;
+}
+
+
+
 /*REPOSIVO*/
 @media (max-width: 1055px) {
   .netflix-banner {

@@ -226,6 +226,11 @@
     </div>
   </div>
 
+  <!-- Modal da Imagem -->
+  <div id="imageModal" class="modal">
+    <span class="close-btn" id="closeImageModal">&times;</span>
+    <img class="modal-content-image" id="modalImage">
+  </div>
   <script>
     const track = document.querySelector('.carousel-track');
     const prevButton = document.querySelector('.prev');
@@ -319,6 +324,30 @@
   setInterval(atualizarTempoJuntos, 1000);
   atualizarTempoJuntos();
 
+  // Modal de Imagem
+  const imageModal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const closeImageModal = document.getElementById('closeImageModal');
+
+  const galleryImages = document.querySelectorAll('.carousel-item img');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modalImage.src = img.src;
+      imageModal.style.display = 'flex';
+    });
+  });
+
+  closeImageModal.addEventListener('click', () => {
+    imageModal.style.display = 'none';
+  });
+
+  // Fechar clicando fora da imagem
+  imageModal.addEventListener('click', (e) => {
+    if (e.target === imageModal) {
+      imageModal.style.display = 'none';
+    }
+  });
   </script>
 </body>
 </html>
