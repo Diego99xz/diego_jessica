@@ -1,0 +1,648 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+  background-color: #000;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Banner Netflix */
+.netflix-banner {
+  display: flex;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px red;
+  max-width: 1000px;
+  height: 450px;
+  position: relative;
+}
+
+.banner-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  max-width: 55%;
+  z-index: 2;
+}
+
+.logo .netflix {
+  color: red;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.logo .serie {
+  color: white;
+  letter-spacing: 2px;
+}
+
+.banner-content h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.banner-content h1 span {
+  color: #fff;
+  font-family: 'Cursive', sans-serif;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #aaa;
+  font-size: 14px;
+  align-items: flex-start;
+}
+
+.banner-content p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.buttons .btn {
+  white-space: nowrap;
+}
+
+.btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn.play {
+  background-color: white;
+  color: black;
+}
+
+.btn.favorite {
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid #aaa;
+}
+
+.banner-image {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Section Geral */
+.section {
+  background-color: #111;
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+  width: 1000px;
+  text-align: center;
+}
+
+.section h2 {
+  color: white;
+  font-size: 32px;
+}
+
+.section p {
+  color: #ccc;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Carrossel */
+.carousel-wrapper {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  overflow: visible; /* Alterado para visible para mostrar botões fora */
+}
+
+.carousel {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 300px;
+  max-width: 300px;
+  margin: 10px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 0 10px red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 400px; /* Ajuste conforme o tamanho desejado */
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.caption {
+  color: red;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #121212;
+  width: 100%;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Botões do carrossel posicionados fora das fotos */
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: red;
+  color: white;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 10;
+}
+
+button.prev {
+  left: -60px; /* Posicionado à esquerda fora da área */
+}
+
+button.next {
+  right: -60px; /* Posicionado à direita fora da área */
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: white;
+  color: red;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Spotify */
+.section iframe {
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+}
+
+
+/* Modal do vídeo */
+.modal {
+    display: none; /* ESSA LINHA ESconde o modal por padrão */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 30px red;
+}
+  
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.buttons a.btn {
+  text-decoration: none;
+}
+/* Cronômetro */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.countdown div {
+  background-color: #1c1c1c;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px red;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.countdown div span:first-child {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.countdown div span:last-child {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Tempo que estamos juntos */
+.tempo-juntos {
+  background-color: #1c1c1c;
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px red;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.tempo-juntos h2 {
+  color: red;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.tempo-juntos p {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.contador-juntos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contador-juntos div {
+  background-color: #000;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px red;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contador-juntos div span:first-child {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.contador-juntos div span:last-child {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 1055px) {
+  .netflix-banner {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .banner-image img {
+    width: 100%;
+    height: auto;
+    object-position: center;
+  }
+
+  .gradient {
+    display: none; /* Opcional: remove o degradê se não fizer sentido no layout empilhado */
+  }
+
+  .banner-content {
+    max-width: 100%;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .infos {
+    align-items: center;
+  }
+
+  .buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/*REPOSIVO*/
+@media (max-width: 1055px) {
+  .netflix-banner {
+    flex-direction: column-reverse;
+    height: auto;
+    width: 700px;
+  }
+  
+  .section {
+    width: 700px;
+    padding: 30px 20px;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .banner-image img {
+    width: 100%;
+    height: auto;
+    object-position: center;
+  }
+
+  .gradient {
+    display: none; /* Remove o degradê, se quiser */
+  }
+
+  .banner-content {
+    max-width: 100%;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .infos {
+    align-items: center;
+  }
+
+  .buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .banner-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,1) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+}
+
+@media (max-width: 1000px) {
+  .section {
+    width: 900px;
+    padding: 30px 20px;
+  }
+
+  .netflix-banner {
+    width: 900px;
+    padding: 30px 20px;
+  }
+}
+
+
+
+@media (max-width: 900px) {
+    .section {
+    width: 800px;
+    padding: 30px 20px;
+  }
+
+  .netflix-banner {
+    width: 780px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+    .section {
+    width: 700px;
+    padding: 30px 20px;
+  }
+
+  .netflix-banner {
+    width: 700px;
+    padding: 30px 20px;
+  }
+}
+
+/* Responsividade para telas menores (até 768px) */
+@media (max-width: 768px) {
+  .section {
+    width: 650px;
+    padding: 30px 20px;
+  }
+
+  .section h2 {
+    color: white;
+    font-size: 24px;
+  }
+  .netflix-banner {
+    flex-direction: column;
+    height: auto;
+    width: 650px;
+    padding: 30px 20px;
+  }
+
+  .banner-content {
+    max-width: 100%;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .banner-content h1 {
+    font-size: 28px;
+  }
+
+  .banner-image {
+    width: 100%;
+  }
+
+  .banner-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .gradient {
+    display: none;
+  }
+
+  /* Carrossel */
+  .carousel-item {
+    min-width: 240px;
+    max-width: 240px;
+    margin: 8px;
+  }
+
+  .carousel-item img {
+    height: 300px;
+  }
+
+  button.prev {
+    left: -30px;
+  }
+
+  button.next {
+    right: -30px;
+  }
+
+  .countdown {
+    gap: 15px;
+  }
+
+  .countdown div {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 550px) {
+  .section {
+    width: 450px;
+    padding: 30px 20px;
+  }
+}
+
+/* Responsivo extremo para celulares muito pequenos (até 480px) */
+@media (max-width: 480px) {
+  .section {
+    width: 400px;
+  }
+
+  .section h2 {
+    color: white;
+    font-size: 20px;
+  }
+  .banner-content h1 {
+    font-size: 24px;
+  }
+
+  .carousel-item {
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  .carousel-item img {
+    height: 250px;
+  }
+
+  button.prev {
+    left: -20px;
+  }
+
+  button.next {
+    right: -20px;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+    .section {
+    width: 480px;
+    padding: 30px 20px;
+  }
+
+  .netflix-banner{
+    width: 480px;
+  }
+}
+
+@media (max-width: 550px) {
+  .section {
+    width: 450px;
+    padding: 30px 20px;
+  }
+
+  .netflix-banner{
+    width: 450px;
+  }
+}
